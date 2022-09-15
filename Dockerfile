@@ -1,4 +1,4 @@
-FROM postgres:12.6
+FROM postgres:12.8
 LABEL maintainer="HARUYAMA Seigo <haruyama@pacificporter.jp>"
 
 RUN apt-get update \
