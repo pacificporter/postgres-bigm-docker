@@ -10,7 +10,7 @@ RUN apt-get update \
     && make USE_PGXS=1 \
     && make USE_PGXS=1 install \
     && echo shared_preload_libraries='pg_bigm' >> /var/lib/postgresql/data/postgresql.conf \
-    && rm -fr /tmp/pg_bigm-1.2-20200228 \
+    && rm -fr /tmp/pg_bigm-1.2-20200228 /tmp/pg_bigm-1.2-20200228.tar.gz \
     && apt-get purge -y curl make gcc postgresql-server-dev-12 libicu-dev \
     && rm -rf /var/lib/apt/lists/* 
 
