@@ -4,7 +4,7 @@ LABEL maintainer="HARUYAMA Seigo <haruyama@pacificporter.jp>"
 RUN apt-get update \
     && apt-get install -y curl make gcc postgresql-server-dev-12 libicu-dev \
     && cd /tmp \
-    && curl -L -O https://ja.osdn.net/dl/pgbigm/pg_bigm-1.2-20200228.tar.gz \
+    && curl -L -O https://github.com/pgbigm/pg_bigm/releases/download/v1.2-20200228/pg_bigm-1.2-20200228.tar.gz \
     && tar zxf pg_bigm-1.2-20200228.tar.gz \
     && cd pg_bigm-1.2-20200228 \
     && make USE_PGXS=1 \
