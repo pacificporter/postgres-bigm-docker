@@ -9,6 +9,10 @@ RUN apt-get update \
     && cd pg_bigm-1.2-20200228 \
     && make USE_PGXS=1 \
     && make USE_PGXS=1 install \
+    && echo fsync=off >> /var/lib/postgresql/data/postgresql.conf \
+    && echo synchronous_commit=off >> /var/lib/postgresql/data/postgresql.conf \
+    && echo full_page_writes=off >> /var/lib/postgresql/data/postgresql.conf \
+    && echo bgwriter_lru_maxpages=0 >> /var/lib/postgresql/data/postgresql.conf \
     && echo shared_preload_libraries='pg_bigm' >> /var/lib/postgresql/data/postgresql.conf \
     && rm -fr /tmp/pg_bigm-1.2-20200228 /tmp/pg_bigm-1.2-20200228.tar.gz \
     && apt-get purge -y curl make gcc postgresql-server-dev-12 libicu-dev \
