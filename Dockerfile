@@ -1,10 +1,10 @@
-FROM postgres:12.11
+FROM postgres:12.18
 LABEL maintainer="HARUYAMA Seigo <haruyama@pacificporter.jp>"
 
 RUN apt-get update \
     && apt-get install -y curl make gcc postgresql-server-dev-12 libicu-dev \
     && cd /tmp \
-    && curl -L -O https://ja.osdn.net/dl/pgbigm/pg_bigm-1.2-20200228.tar.gz \
+    && curl -L -o pg_bigm-1.2-20200228.tar.gz https://github.com/pgbigm/pg_bigm/archive/refs/tags/v1.2-20200228.tar.gz \
     && tar zxf pg_bigm-1.2-20200228.tar.gz \
     && cd pg_bigm-1.2-20200228 \
     && make USE_PGXS=1 \
