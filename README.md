@@ -3,7 +3,7 @@
 ## build
 
 ```
-docker build -t pacificporter/postgres-bigm:12.18 .
+docker build --platform linux/amd64 -t pacificporter/postgres-bigm:12.18 .
 ```
 
 ## push
