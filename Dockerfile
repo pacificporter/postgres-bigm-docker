@@ -1,4 +1,4 @@
-FROM postgres:12.18
+FROM --platform=linux/amd64 postgres:12.18
 LABEL maintainer="HARUYAMA Seigo <haruyama@pacificporter.jp>"
 
 RUN apt-get update \
