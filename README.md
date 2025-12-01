@@ -3,11 +3,11 @@
 ## build
 
 ```
-docker build -t pacificporter/postgres-bigm:13.16 .
+docker build -t pacificporter/postgres-bigm:16.11 .
 ```
 
 ## push
 
 ```
-docker push pacificporter/postgres-bigm:13.16
+docker push pacificporter/postgres-bigm:16.11
 ```
