@@ -1,17 +1,17 @@
-FROM --platform=linux/amd64 postgres:12.18
+FROM --platform=linux/amd64 postgres:13.16
 LABEL maintainer="HARUYAMA Seigo <haruyama@pacificporter.jp>"
 
 RUN apt-get update \
-    && apt-get install -y curl make gcc postgresql-server-dev-12 libicu-dev \
+    && apt-get install -y curl make gcc postgresql-server-dev-13 libicu-dev \
     && cd /tmp \
-    && curl -L -o pg_bigm-1.2-20200228.tar.gz https://github.com/pgbigm/pg_bigm/archive/refs/tags/v1.2-20200228.tar.gz \
-    && tar zxf pg_bigm-1.2-20200228.tar.gz \
-    && cd pg_bigm-1.2-20200228 \
+    && curl -L -o pg_bigm-1.2-20240606.tar.gz https://github.com/pgbigm/pg_bigm/archive/refs/tags/v1.2-20240606.tar.gz \
+    && tar zxf pg_bigm-1.2-20240606.tar.gz \
+    && cd pg_bigm-1.2-20240606 \
     && make USE_PGXS=1 \
     && make USE_PGXS=1 install \
     && echo shared_preload_libraries='pg_bigm' >> /usr/share/postgresql/postgresql.conf.sample \
-    && rm -fr /tmp/pg_bigm-1.2-20200228 /tmp/pg_bigm-1.2-20200228.tar.gz \
-    && apt-get purge -y curl make gcc postgresql-server-dev-12 libicu-dev \
+    && rm -rf /tmp/pg_bigm-1.2-20240606 /tmp/pg_bigm-1.2-20240606.tar.gz \
+    && apt-get purge -y curl make gcc postgresql-server-dev-13 libicu-dev \
     && rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGINT
