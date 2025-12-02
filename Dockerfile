@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 postgres:16.11
+FROM postgres:16.11
 LABEL maintainer="HARUYAMA Seigo <haruyama@pacificporter.jp>"
 
 RUN apt-get update \
